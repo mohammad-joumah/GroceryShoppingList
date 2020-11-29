@@ -12,15 +12,20 @@ const bodyParser = require('body-parser');
 // setup body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// dotenv
+const dotenv = require('dotenv');
+dotenv.config();
+
 // mongoose
 const mongoose = require('mongoose');
+
+DB_LINK=process.env.DB_LINK
 // setup mongoose
-mongoose.connect('mongodb+srv://admin:P@ssw0rd@cluster0.stgay.mongodb.net/Mohammad', { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false  })
+mongoose.connect(DB_LINK, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false  })
     .then(() => {
         console.log('Your MongoDB is connected......')
     })
     .catch(err => console.log('Your ERROR is : ' + err));
-
 
 
 // setup static folder for external files
