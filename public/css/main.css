@@ -1,0 +1,9 @@
+.mainContainer{
+    border: 1px black;
+    background-color: rgba(128, 128, 128,0.4);
+    border-radius: 0 10px;
+}
+
+.add:hover{
+    border: 5px;
+}

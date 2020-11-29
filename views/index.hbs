@@ -1,0 +1,60 @@
+<div class="container p-2 row row-cols-1 row-cols-md-3">
+    {{!-- add product link --}}
+    <div class="col mb-4">
+        <div class="card mb-3 add" >
+            <a href="#" class="card-link" onclick="addProduct()" data-toggle="modal" data-target="#createProduct">
+                <img src="/img/add-1-icon.png" class="card-img-top" alt="...">
+            </a>
+        </div>
+    </div> 
+    {{#each data}}
+        <div class="col mb-4">
+            {{!-- products cards --}}
+            <div class="card p-2" >
+                <div class="card-body">
+                    <form action="/checked/{{_id}}" method="POST">
+                        <button type="submit" class="close" id="check">
+                            {{#if checked}}
+                                <i class="fas fa-check-circle"></i>
+                            {{else}}
+                                <i class="far fa-check-circle"></i>
+                            {{/if}}
+                        </button>
+                    </form>
+                    <h5 class="card-title">{{articaleName}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">The amount: {{amount}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link" onclick="getDetail('{{_id}}')"  data-toggle="modal" data-target="#productDetailId">
+                        <button type="button" class="btn btn-info"><i class="fas fa-edit"></i> Edite</button>
+                    </a>
+                    <a href="/deleteProduct/{{_id}}" class="card-link"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</button></a>
+                    
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="createProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="resultId">
+      {{!-- modal description --}}  
+  </div>
+</div>
+
+
+<div class="modal fade" id="productDetailId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="resultId2">
+      {{!-- modal description --}}  
+  </div>
+</div>
+
+
+<div class="modal fade" id="productPhotoId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" id="resultId3">
+      {{!-- modal description --}}  
+  </div>
+</div>
